@@ -1,0 +1,63 @@
+<%- include('./partials/header') -%>
+
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead class="">
+                        <tr>
+                            <th>id</th>
+                            <th>nombre</th>
+                            <th>direccion</th>
+                            <th>numero de telefono</th>
+                            <th>acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data) { %>
+                            <% for (let i = 0; i < data.length; i++) {%>
+                                <tr>
+                                    <td>
+                                        <%= (i+1) %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].nombre %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].direccion %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].telefono %>
+                                    </td>
+                                </tr>
+                           <% } %>
+                      <%  } %>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-5">
+               <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <div class="form-group">
+                            <input required type="text" name="nombre" placeholder="nombre" class="form-control">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input required type="text" name="direccion" placeholder="direccion" class="form-control">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input required type="text" name="telefono" placeholder="numero de telefono" class="form-control">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">guardar vistima</button>
+                    </form>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer') -%>
